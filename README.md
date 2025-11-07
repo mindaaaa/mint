@@ -11,8 +11,6 @@
 
 </div>
 
----
-
 <img src="https://i.pinimg.com/originals/fc/9c/e5/fc9ce59ceff32d597144e47606325126.gif" alt="배너" width=1280>
 
 ## 🌼 What is MINT?
