@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "module": "CommonJS", // <- 테스트 시 CJS 출력
+    "module": "CommonJS",
     "target": "ES2020",
     "esModuleInterop": true
   }
