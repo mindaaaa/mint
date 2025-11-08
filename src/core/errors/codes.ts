@@ -17,3 +17,25 @@ export interface LexerErrorFormatParams<C extends LexerErrorCode> {
   lexeme?: string;
   details: LexerErrorDetailMap[C];
 }
+
+export type ParserErrorCode =
+  | 'PARSER_UNEXPECTED_TOKEN'
+  | 'PARSER_EXPECTED_TOKEN';
+
+export interface ParserErrorDetailMap {
+  PARSER_UNEXPECTED_TOKEN: {
+    actual: string;
+    expected?: string;
+  };
+  PARSER_EXPECTED_TOKEN: {
+    expected: string;
+    actual: string;
+  };
+}
+
+export interface ParserErrorFormatParams<C extends ParserErrorCode> {
+  code: C;
+  position: SourcePosition;
+  lexeme?: string;
+  details: ParserErrorDetailMap[C];
+}
