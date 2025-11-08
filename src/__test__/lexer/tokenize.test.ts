@@ -143,7 +143,9 @@ sparkle name
       expect(error).toBeInstanceOf(LexerError);
       if (error instanceof LexerError) {
         expect(error.code).toBe('LEXER_UNTERMINATED_STRING');
-        expect(formatLexerError(error)).toContain('Unterminated string literal');
+        expect(formatLexerError(error)).toContain(
+          'Unterminated string literal'
+        );
       }
     }
   });
