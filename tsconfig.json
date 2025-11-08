@@ -7,6 +7,10 @@
     "declaration": true,
     "outDir": "./dist",
     "rootDir": "./src",
+    "paths": {
+      "@core/*": ["./src/core/*"],
+      "@test/*": ["./src/__test__/*"]
+    },
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -17,4 +21,3 @@
   "include": ["src/**/*.ts"],
   "exclude": ["dist", "node_modules"]
 }
-
