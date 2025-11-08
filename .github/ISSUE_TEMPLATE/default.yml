@@ -1,0 +1,37 @@
+---
+name: Feature / Story Issue
+description: 스토리·태스크 작업을 위한 기본 이슈 템플릿
+title: "[Milestone] 간단한 요약"
+labels: ["status:ready"]
+assignees: []
+---
+
+## Summary
+- [ ] 사용자 시나리오가 충족되었는지 체크
+- [ ] 구현/수정해야 할 기능을 한 문장으로 정리
+
+## Context
+- 작업 배경 및 의존성
+- 선행 결정 사항 여부
+
+## Acceptance Criteria
+- [ ] (예시) breeze 조건문 토큰이 올바르게 생성된다
+- [ ] (예시) 조건이 참일 때 블록이 실행되고, 거짓이면 실행되지 않는다
+
+## Tasks
+- [ ] 세부 구현 단계 1
+- [ ] 세부 구현 단계 2
+  - 필요 시 예상 시간 등 추가 메모
+
+## Testing Notes
+- [ ] 유닛 테스트: 경로/파일
+- [ ] 통합 테스트: 경로/파일
+- 수동 테스트 절차 (필요 시)
+
+## Documentation
+- [ ] README / Wiki 업데이트 여부 기록
+
+## Links
+- Story / Epic: <!-- docs/task.md 링크 등 -->
+- 관련 PR: <!-- 추후 연결 -->
+- 참고 자료: <!-- Notion, Wiki 등 -->
