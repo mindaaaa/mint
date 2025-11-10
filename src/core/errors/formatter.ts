@@ -1,10 +1,13 @@
-import { LexerError } from '@core/lexer/errors.js';
-import { ParserError } from '@core/parser/errors.js';
+import { LexerError } from '@core/lexer/errors/errors.js';
+import { ParserError } from '@core/parser/errors/errors.js';
+import { EvaluatorError } from '@core/evaluator/errors/errors.js';
 import type {
   LexerErrorCode,
   LexerErrorFormatParams,
   ParserErrorCode,
   ParserErrorFormatParams,
+  EvaluatorErrorCode,
+  EvaluatorErrorFormatParams,
 } from '@core/errors/codes.js';
 
 /**
@@ -44,6 +47,33 @@ const PARSER_MESSAGE_BUILDERS: {
     const expected = details?.expected ?? 'unknown';
     const actual = details?.actual ?? 'unknown';
     return `${location}: Expected '${expected}' but found '${actual}'.`;
+  },
+};
+
+/**
+ * 평가기 에러 메시지 생성 함수 맵
+ */
+const EVALUATOR_MESSAGE_BUILDERS: {
+  [K in EvaluatorErrorCode]: (params: EvaluatorErrorFormatParams<K>) => string;
+} = {
+  EVALUATOR_UNDEFINED_IDENTIFIER: ({ details }) => {
+    return `Undefined identifier "${details.name}".`;
+  },
+  EVALUATOR_INVALID_ASSIGNMENT_TARGET: ({ details }) => {
+    return `Cannot assign to undeclared identifier "${details.name}".`;
+  },
+  EVALUATOR_NOT_CALLABLE: ({ details }) => {
+    return `Cannot call value of type ${details.type}.`;
+  },
+  EVALUATOR_ARGUMENT_COUNT_MISMATCH: ({ details }) => {
+    return `Expected ${details.expected} argument(s) but received ${details.received}.`;
+  },
+  EVALUATOR_RETURN_OUTSIDE_FUNCTION: () => {
+    return '"gift" can only be used inside function bodies.';
+  },
+  EVALUATOR_TYPE_ERROR: ({ details }) => {
+    const operands = details.operandTypes.join(' and ');
+    return `Operator "${details.operator}" is not defined for operand types ${operands}.`;
   },
 };
 
@@ -90,6 +120,26 @@ export function formatParserErrorMessage<C extends ParserErrorCode>(
 }
 
 /**
+ * 코드와 상세 정보를 바탕으로 평가기 에러 메시지를 생성한다.
+ *
+ * @param params 에러 포맷 파라미터
+ * @returns 생성된 평가기 에러 메시지
+ */
+export function formatEvaluatorErrorMessage<C extends EvaluatorErrorCode>(
+  params: EvaluatorErrorFormatParams<C>
+): string {
+  const builder = EVALUATOR_MESSAGE_BUILDERS[params.code] as (
+    params: EvaluatorErrorFormatParams<C>
+  ) => string;
+
+  if (!builder) {
+    return `Unknown evaluator error (${params.code}).`;
+  }
+
+  return builder(params);
+}
+
+/**
  * LexerError 인스턴스를 받아 메시지를 생성한다.
  *
  * @param error LexerError 인스턴스
@@ -119,6 +169,21 @@ export function formatParserError<C extends ParserErrorCode>(
     code: error.code,
     position: error.position,
     lexeme: error.lexeme,
+    details: error.details,
+  });
+}
+
+/**
+ * EvaluatorError 인스턴스를 받아 메시지를 생성한다.
+ *
+ * @param error EvaluatorError 인스턴스
+ * @returns 생성된 EvaluatorError 메시지
+ */
+export function formatEvaluatorError<C extends EvaluatorErrorCode>(
+  error: EvaluatorError<C>
+): string {
+  return formatEvaluatorErrorMessage<C>({
+    code: error.code,
     details: error.details,
   });
 }

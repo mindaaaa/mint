@@ -1,17 +1,21 @@
 import type { LexerState } from '@core/lexer/engine/state.js';
-import { LexerError } from '@core/lexer/errors.js';
+import { LexerError } from '@core/lexer/errors/errors.js';
 import type {
   LexerErrorCode,
   LexerErrorDetailMap,
   ParserErrorCode,
   ParserErrorDetailMap,
+  EvaluatorErrorCode,
+  EvaluatorErrorDetailMap,
 } from '@core/errors/codes.js';
 import {
   formatLexerErrorMessage,
   formatParserErrorMessage,
+  formatEvaluatorErrorMessage,
 } from '@core/errors/formatter.js';
 import type { Token } from '@core/lexer/tokens.js';
-import { ParserError } from '@core/parser/errors.js';
+import { ParserError } from '@core/parser/errors/errors.js';
+import { EvaluatorError } from '@core/evaluator/errors/errors.js';
 
 /**
  * 렉서 상태와 에러 코드를 기반으로 표준화된 LexerError를 생성한다.
@@ -73,6 +77,29 @@ export function createParserError<C extends ParserErrorCode>(
     message,
     position,
     lexeme,
+    details,
+  });
+}
+
+/**
+ * 평가 단계에서 발생한 오류에 대한 EvaluatorError를 생성한다.
+ *
+ * @param code 에러 코드
+ * @param details 에러 코드별 상세 정보
+ * @returns 생성된 EvaluatorError 인스턴스
+ */
+export function createEvaluatorError<C extends EvaluatorErrorCode>(
+  code: C,
+  details: EvaluatorErrorDetailMap[C]
+): EvaluatorError<C> {
+  const message = formatEvaluatorErrorMessage<C>({
+    code,
+    details,
+  });
+
+  return new EvaluatorError<C>({
+    code,
+    message,
     details,
   });
 }
