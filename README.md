@@ -76,6 +76,22 @@ petal greet(name) {
 
 ---
 
+## 연산자
+
+| 연산자 | 설명                  | 예시                                              |
+| ------ | --------------------- | ------------------------------------------------- |
+| `+`    | 덧셈 또는 문자열 결합 | `plant total = 1 + 2`, `sparkle "hello, " + name` |
+| `-`    | 뺄셈                  | `plant diff = right - left`                       |
+| `*`    | 곱셈                  | `plant area = width * height`                     |
+| `/`    | 나눗셈                | `plant half = value / 2`                          |
+| `==`   | 동등 비교             | `breeze (answer == 42) softly { ... }`            |
+| `<`    | 미만 비교             | `bloom (count < limit) softly { ... }`            |
+
+> [!Warning]
+> 타입이 맞지 않는 연산을 시도하면 평가기에서 런타임 에러를 발생시킵니다.
+
+---
+
 ## 키워드
 
 | 키워드    | 기능      | 의미                                    |
