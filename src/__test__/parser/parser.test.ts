@@ -1,6 +1,6 @@
 import { tokenize } from '@core/lexer/engine/index.js';
 import { parse } from '@core/parser/parser.js';
-import { ParserError } from '@core/parser/errors.js';
+import { ParserError } from '@core/parser/errors/errors.js';
 import { formatParserError } from '@core/errors/formatter.js';
 
 const SAMPLE_SOURCE = `
