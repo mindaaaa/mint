@@ -1,7 +1,7 @@
 import { createInitialState } from '@core/lexer/engine/state.js';
 import { createLexerError } from '@core/errors/factory.js';
 import { formatLexerError } from '@core/errors/formatter.js';
-import { LexerError } from '@core/lexer/errors.js';
+import { LexerError } from '@core/lexer/errors/errors.js';
 
 function makeStateFromSource(
   source: string,
