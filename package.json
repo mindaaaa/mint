@@ -5,8 +5,13 @@
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "bin": {
+    "mint": "dist/app/transport/cli/main.js"
+  },
   "scripts": {
-    "build": "tsc --project tsconfig.json",
+    "prestart": "npm run build",
+    "start": "node dist/app/transport/cli/main.js",
+    "build": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
     "clean": "rm -rf dist",
     "pretest": "npm run build",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest"
@@ -19,6 +24,7 @@
     "@types/jest": "^30.0.0",
     "jest": "^30.2.0",
     "ts-jest": "^29.4.5",
+    "tsc-alias": "^1.8.16",
     "typescript": "^5.9.3"
   }
 }

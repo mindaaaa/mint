@@ -9,7 +9,8 @@
     "rootDir": "./src",
     "paths": {
       "@core/*": ["./src/core/*"],
-      "@test/*": ["./src/__test__/*"]
+      "@test/*": ["./src/__test__/*"],
+      "@app/*": ["./src/app/*"]
     },
     "strict": true,
     "esModuleInterop": true,
