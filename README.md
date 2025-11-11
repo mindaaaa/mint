@@ -33,23 +33,37 @@ MINT는 감성적이고 생명력 있는 코딩 경험을 추구하는 커스텀
 
 ## 🪴 Quick Start
 
-### 설치
+1. 설치
+   ```bash
+   npm install
+   ```
+2. 빠른 실행
+   ```bash
+   npm start -- run examples/hello.mint
+   ```
+   ```
+   🌿 Result
+     hello, mint!
+   ```
+3. 테스트
+   ```bash
+   npm test
+   ```
 
-```bash
-npm install
-```
+### CLI 사용법
 
-### 실행
+- `mint run <file.mint>`: 지정한 스크립트를 실행합니다.
+- `mint version`: CLI 버전을 출력합니다.
 
-```bash
-npm run start
-```
+> **Tip**  
+> 로컬 개발 환경에서는 먼저 `npm run build`를 수행한 뒤 `npx mint run examples/hello.mint`처럼 실행할 수 있습니다. <br>`npm start -- <command>` 형태로도 동일하게 사용할 수 있습니다.
 
-### 테스트
+### 예제 스크립트
 
-```bash
-npm test
-```
+- `examples/hello.mint`: 간단한 인사 출력
+- `examples/conditional.mint`: 조건문과 반복문 흐름
+- `examples/functions.mint`: 함수 선언과 호출
+- `examples/errors.mint`: 런타임 에러 데모
 
 ---
 
