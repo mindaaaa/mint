@@ -1,5 +1,5 @@
-import { runSource } from '../../app/run/runner.js';
-import { formatMintError, formatSuccess } from '../../app/run/formatter.js';
+import { runSource } from '@app/run/runner.js';
+import { formatMintError, formatSuccess } from '@app/run/formatter.js';
 
 describe('CLI runSource', () => {
   test('성공적으로 소스를 실행하고 stdout을 수집한다', () => {
