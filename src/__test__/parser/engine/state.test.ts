@@ -6,7 +6,6 @@ import {
   isAtEnd,
   peek,
   previous,
-  type ParserState,
 } from '@core/parser/engine/state.js';
 import type { Token } from '@core/lexer/tokens.js';
 
@@ -17,7 +16,12 @@ describe('parser engine state', () => {
       const tokens: Token[] = [
         { type: 'IDENTIFIER', lexeme: 'x', position: { line: 1, column: 1 } },
         { type: 'EQUAL', lexeme: '=', position: { line: 1, column: 3 } },
-        { type: 'NUMBER', lexeme: '1', literal: 1, position: { line: 1, column: 5 } },
+        {
+          type: 'NUMBER',
+          lexeme: '1',
+          literal: 1,
+          position: { line: 1, column: 5 },
+        },
         { type: 'EOF', lexeme: '', position: { line: 1, column: 6 } },
       ];
 
@@ -284,4 +288,3 @@ describe('parser engine state', () => {
     });
   });
 });
-

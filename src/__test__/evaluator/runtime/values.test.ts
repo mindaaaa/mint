@@ -1,4 +1,7 @@
-import { isFunctionValue, type FunctionValue } from '@core/evaluator/runtime/values.js';
+import {
+  isFunctionValue,
+  type FunctionValue,
+} from '@core/evaluator/runtime/values.js';
 import type { FunctionDeclarationNode } from '@core/ast/nodes.js';
 import { Environment } from '@core/evaluator/runtime/environment.js';
 
@@ -95,4 +98,3 @@ describe('runtime values', () => {
     });
   });
 });
-

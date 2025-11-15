@@ -33,7 +33,12 @@ describe('parser engine helpers', () => {
     test('식별자가 아닌 토큰이면 ParserError를 발생시킨다', () => {
       // Given
       const tokens: Token[] = [
-        { type: 'NUMBER', lexeme: '1', literal: 1, position: { line: 1, column: 1 } },
+        {
+          type: 'NUMBER',
+          lexeme: '1',
+          literal: 1,
+          position: { line: 1, column: 1 },
+        },
         { type: 'EOF', lexeme: '', position: { line: 1, column: 2 } },
       ];
       const state = createParserState(tokens);
@@ -256,4 +261,3 @@ describe('parser engine helpers', () => {
     });
   });
 });
-
