@@ -55,8 +55,8 @@ MINT는 감성적이고 생명력 있는 코딩 경험을 추구하는 커스텀
 - `mint run <file.mint>`: 지정한 스크립트를 실행합니다.
 - `mint version`: CLI 버전을 출력합니다.
 
-> **Tip**  
-> 로컬 개발 환경에서는 먼저 `npm run build`를 수행한 뒤 `npx mint run examples/hello.mint`처럼 실행할 수 있습니다. <br>`npm start -- <command>` 형태로도 동일하게 사용할 수 있습니다.
+> [!Tip]  
+> 로컬 개발 환경에서는 먼저 `npm run build`를 수행한 뒤 <br>`npx mint run examples/hello.mint`처럼 실행할 수 있습니다. <br>`npm start -- <command>` 형태로도 동일하게 사용할 수 있습니다.
 
 ### 예제 스크립트
 
@@ -64,6 +64,26 @@ MINT는 감성적이고 생명력 있는 코딩 경험을 추구하는 커스텀
 - `examples/conditional.mint`: 조건문과 반복문 흐름
 - `examples/functions.mint`: 함수 선언과 호출
 - `examples/errors.mint`: 런타임 에러 데모
+
+### 오류 예시
+
+```bash
+mint run examples/errors.mint
+```
+
+```
+🔥 Runtime Error
+  at examples/errors.mint
+  Undefined identifier "undefinedFeeling".
+    details:
+    {
+      "name": "undefinedFeeling"
+    }
+  Hint: 실행 중인 값과 타입이 예상과 일치하는지 확인하세요.
+```
+
+> [!NOTE]  
+> 렉서/파서 에러를 포함한 더 많은 예시는 [`에러 이해하기`](https://github.com/mindaaaa/mint/wiki/%EC%97%90%EB%9F%AC-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0)에서 확인할 수 있습니다.
 
 ---
 
@@ -131,7 +151,9 @@ petal greet(name) {
 
 ## 더 알아보기
 
-더 자세한 내용은 [설계 문서](../mint.md)를 참고하세요.
+- [Getting Started](https://github.com/mindaaaa/mint/wiki/Getting-Started)
+- [언어 가이드](https://github.com/mindaaaa/mint/wiki/%EC%96%B8%EC%96%B4-%EA%B0%80%EC%9D%B4%EB%93%9C)
+- [에러 이해하기](https://github.com/mindaaaa/mint/wiki/%EC%97%90%EB%9F%AC-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0)
 
 ---
 
