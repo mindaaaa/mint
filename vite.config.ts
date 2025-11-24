@@ -9,6 +9,7 @@ export default defineConfig({
     alias: {
       '@core': path.resolve(__dirname, './dist/core'),
       '@app': path.resolve(__dirname, './dist/app'),
+      '@web': path.resolve(__dirname, './src/app/transport/web'),
     },
   },
   server: {

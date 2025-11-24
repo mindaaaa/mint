@@ -1,4 +1,4 @@
-import type { CommandHandler } from '../types.js';
+import type { CommandHandler } from '@web/commands/types.js';
 import { runSource } from '@app/run/runner.js';
 
 const MINT_EXAMPLES = [

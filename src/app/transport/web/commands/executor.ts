@@ -2,7 +2,7 @@ import type {
   CommandContext,
   CommandResult,
   CommandRegistry,
-} from './types.js';
+} from '@web/commands/types.js';
 
 /**
  * 명령어 실행 결과를 CommandResult로 정규화한다.

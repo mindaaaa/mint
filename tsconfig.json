@@ -11,7 +11,8 @@
     "paths": {
       "@core/*": ["./src/core/*"],
       "@test/*": ["./src/__test__/*"],
-      "@app/*": ["./src/app/*"]
+      "@app/*": ["./src/app/*"],
+      "@web/*": ["./src/app/transport/web/*"]
     },
     "strict": true,
     "esModuleInterop": true,

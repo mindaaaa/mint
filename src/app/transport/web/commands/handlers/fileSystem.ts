@@ -1,5 +1,5 @@
-import type { CommandHandler } from '../types.js';
-import { FileSystemStore } from '../store/fileSystem.js';
+import type { CommandHandler } from '@web/commands/types.js';
+import { FileSystemStore } from '@web/commands/store/FileSystem.js';
 
 /**
  * 파일 내용을 출력합니다.

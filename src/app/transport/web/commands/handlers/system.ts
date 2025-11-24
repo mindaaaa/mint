@@ -1,4 +1,4 @@
-import type { CommandHandler } from '../types.js';
+import type { CommandHandler } from '@web/commands/types.js';
 
 const VERSION_INFO = {
   name: 'mint',
