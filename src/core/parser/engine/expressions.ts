@@ -227,6 +227,15 @@ export class ExpressionParser {
     }
 
     if (matchType(this.state, 'IDENTIFIER')) {
+      const prev = previous(this.state);
+
+      if (typeof prev.literal === 'boolean') {
+        return {
+          type: 'LiteralExpression',
+          value: prev.literal,
+        };
+      }
+
       return {
         type: 'IdentifierExpression',
         name: previous(this.state).lexeme,

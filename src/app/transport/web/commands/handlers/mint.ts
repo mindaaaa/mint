@@ -21,7 +21,7 @@ export const mint: CommandHandler = (args) => {
     };
   }
 
-  const code = args.join(' ');
+  const code = args.join(' ').replace(/\\n/g, '\n');
   const result = runSource(code, { filename: '<terminal>' });
 
   if (!result.ok) {

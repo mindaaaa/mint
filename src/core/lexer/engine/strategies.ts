@@ -140,6 +140,17 @@ const identifierRule: TokenRule = (state) => {
   }
 
   const text = currentLexeme(state);
+
+  if (text === 'true') {
+    addToken(state, 'IDENTIFIER', true);
+    return true;
+  }
+
+  if (text === 'false') {
+    addToken(state, 'IDENTIFIER', false);
+    return true;
+  }
+
   const keyword = KEYWORDS[text] ?? null;
 
   if (keyword) {

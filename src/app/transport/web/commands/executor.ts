@@ -133,14 +133,15 @@ function tokenizeWithQuotes(input: string): string[] {
       continue;
     }
 
+    /* 이스케이프 시퀀스 처리 */
     if (isEscapeSequence(char, nextChar)) {
-      // 따옴표 내부에서만 이스케이프 처리
       if (inQuotes) {
-        current += nextChar;
+        const escapedChar = getEscapedChar(nextChar);
+        current += escapedChar;
         i += 2;
         continue;
       }
-      // 따옴표 외부에서는 백슬래시를 그대로 추가
+      /* 이스케이프 시퀀스 외부에서는 백슬래시를 그대로 추가 */
       current += char;
       i++;
       continue;
@@ -183,6 +184,30 @@ function isWhitespace(char: string): boolean {
  */
 function isEscapeSequence(char: string, nextChar: string | undefined): boolean {
   return char === '\\' && nextChar !== undefined;
+}
+
+/**
+ * 이스케이프된 문자를 실제 문자로 변환한다.
+ * @param escapedChar - 이스케이프된 문자 (예: 'n', 't', '"')
+ * @returns 실제 문자
+ */
+function getEscapedChar(escapedChar: string): string {
+  switch (escapedChar) {
+    case 'n':
+      return '\n';
+    case 't':
+      return '\t';
+    case 'r':
+      return '\r';
+    case '\\':
+      return '\\';
+    case '"':
+      return '"';
+    case "'":
+      return "'";
+    default:
+      return escapedChar; /* 알 수 없는 이스케이프는 그대로 반환 */
+  }
 }
 
 /**
