@@ -31,7 +31,29 @@ MINT는 감성적이고 생명력 있는 코딩 경험을 추구하는 커스텀
 
 ---
 
+## 🚀 Try it Online
+
+**웹 플레이그라운드에서 바로 체험해보세요!**
+
+👉 **[https://mint-woad.vercel.app/](https://mint-woad.vercel.app/)**
+
+웹 브라우저에서 MINT 코드를 작성하고 실행할 수 있습니다.  
+터미널 아이콘을 더블클릭하여 시작하세요!
+
+---
+
 ## 🪴 Quick Start
+
+### 웹에서 시작하기 (추천)
+
+1. [웹 플레이그라운드](https://mint-woad.vercel.app/) 접속
+2. 터미널 아이콘 더블클릭
+3. `mint "sparkle \"hello, mint!\""` 입력하여 실행
+
+> [!Tip]  
+> 웹 플레이그라운드에서는 설치 없이 바로 MINT를 체험할 수 있습니다.
+
+### CLI로 시작하기
 
 1. 설치
    ```bash
@@ -50,7 +72,7 @@ MINT는 감성적이고 생명력 있는 코딩 경험을 추구하는 커스텀
    npm test
    ```
 
-### CLI 사용법
+#### CLI 사용법
 
 - `mint run <file.mint>`: 지정한 스크립트를 실행합니다.
 - `mint version`: CLI 버전을 출력합니다.
@@ -58,14 +80,14 @@ MINT는 감성적이고 생명력 있는 코딩 경험을 추구하는 커스텀
 > [!Tip]  
 > 로컬 개발 환경에서는 먼저 `npm run build`를 수행한 뒤 <br>`npx mint run examples/hello.mint`처럼 실행할 수 있습니다. <br>`npm start -- <command>` 형태로도 동일하게 사용할 수 있습니다.
 
-### 예제 스크립트
+#### 예제 스크립트
 
 - `examples/hello.mint`: 간단한 인사 출력
 - `examples/conditional.mint`: 조건문과 반복문 흐름
 - `examples/functions.mint`: 함수 선언과 호출
 - `examples/errors.mint`: 런타임 에러 데모
 
-### 오류 예시
+#### 오류 예시
 
 ```bash
 mint run examples/errors.mint
@@ -83,7 +105,7 @@ mint run examples/errors.mint
 ```
 
 > [!NOTE]  
-> 렉서/파서 에러를 포함한 더 많은 예시는 [`에러 이해하기`](https://github.com/mindaaaa/mint/wiki/%EC%97%90%EB%9F%AC-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0)에서 확인할 수 있습니다.
+> 렉서/파서 에러를 포함한 더 많은 예시와 상세한 가이드는 [위키](https://github.com/mindaaaa/mint/wiki)에서 확인할 수 있습니다.
 
 ---
 
@@ -151,9 +173,11 @@ petal greet(name) {
 
 ## 더 알아보기
 
-- [Getting Started](https://github.com/mindaaaa/mint/wiki/Getting-Started)
-- [언어 가이드](https://github.com/mindaaaa/mint/wiki/%EC%96%B8%EC%96%B4-%EA%B0%80%EC%9D%B4%EB%93%9C)
-- [에러 이해하기](https://github.com/mindaaaa/mint/wiki/%EC%97%90%EB%9F%AC-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0)
+자세한 문서와 예제는 [위키](https://github.com/mindaaaa/mint/wiki)에서 확인하세요.
+
+- [Getting Started](https://github.com/mindaaaa/mint/wiki/Getting-Started) - 시작하기 가이드
+- [언어 가이드](https://github.com/mindaaaa/mint/wiki/%EC%96%B8%EC%96%B4-%EA%B0%80%EC%9D%B4%EB%93%9C) - 문법 상세 설명
+- [에러 이해하기](https://github.com/mindaaaa/mint/wiki/%EC%97%90%EB%9F%AC-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0) - 에러 처리 가이드
 
 ---
 
