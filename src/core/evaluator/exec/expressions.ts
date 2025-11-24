@@ -36,10 +36,7 @@ export class ExpressionEvaluator {
         return left + right;
       }
 
-      if (typeof left === 'string' && typeof right === 'string') {
-        return left + right;
-      }
-      this.throwTypeError('+', [left, right]);
+      return String(left) + String(right);
     },
     '-': (left, right) => {
       const [leftNumber, rightNumber] = this.expectNumbers('-', left, right);
@@ -60,6 +57,10 @@ export class ExpressionEvaluator {
     '<': (left, right) => {
       const [leftNumber, rightNumber] = this.expectNumbers('<', left, right);
       return leftNumber < rightNumber;
+    },
+    '>': (left, right) => {
+      const [leftNumber, rightNumber] = this.expectNumbers('>', left, right);
+      return leftNumber > rightNumber;
     },
   };
 

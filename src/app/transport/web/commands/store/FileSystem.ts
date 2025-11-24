@@ -20,7 +20,7 @@ export class FileSystemStore {
       const defaultFiles: Record<string, string> = {
         'hello.mint': 'plant greeting = "hello, mint"\nsparkle greeting',
         'README.md':
-          '# MINT Language\n\nA soft-spoken language for expressing life, feeling, and flow.',
+          '# MINT Language\nA soft-spoken language for expressing life, feeling, and flow.',
       };
       localStorage.setItem(this.STORAGE_KEY, JSON.stringify(defaultFiles));
     }

@@ -382,37 +382,6 @@ describe('ExpressionEvaluator', () => {
       expect(result).toBe(true);
     });
 
-    test('타입이 다른 피연산자로 덧셈을 수행하면 EvaluatorError를 발생시킨다', () => {
-      // Given
-      const expression: ExpressionNode = {
-        type: 'BinaryExpression',
-        operator: '+',
-        left: {
-          type: 'LiteralExpression',
-          value: 1,
-        },
-        right: {
-          type: 'LiteralExpression',
-          value: 'hello',
-        },
-      };
-
-      // When
-      const when = () =>
-        evaluator.evaluate(expression, environment, { inFunction: false });
-
-      // Then
-      expect(when).toThrow(EvaluatorError);
-      try {
-        evaluator.evaluate(expression, environment, { inFunction: false });
-      } catch (error) {
-        expect(error).toBeInstanceOf(EvaluatorError);
-        if (error instanceof EvaluatorError) {
-          expect(error.code).toBe('EVALUATOR_TYPE_ERROR');
-        }
-      }
-    });
-
     test('타입이 다른 피연산자로 동등 비교를 수행하면 EvaluatorError를 발생시킨다', () => {
       // Given
       const expression: ExpressionNode = {
