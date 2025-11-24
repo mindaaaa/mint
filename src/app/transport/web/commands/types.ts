@@ -17,7 +17,7 @@ export type CommandHandler = (
 ) => CommandResult | string | void;
 
 export interface CommandContext {
-  setLiens: (updator: (prev: TerminalLine[]) => TerminalLine[]) => void;
+  setLines: (updator: (prev: TerminalLine[]) => TerminalLine[]) => void;
   commandHistory: string[];
   lines: TerminalLine[];
 }

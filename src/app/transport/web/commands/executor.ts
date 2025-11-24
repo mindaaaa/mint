@@ -87,7 +87,7 @@ function parseCommand(
  * @param context - 명령어 실행 컨텍스트
  */
 function addInputLine(input: string, context: CommandContext): void {
-  context.setLiens((prev) => [...prev, { type: 'input', content: input }]);
+  context.setLines((prev) => [...prev, { type: 'input', content: input }]);
 }
 
 /**
@@ -99,7 +99,7 @@ function addUnknownCommandError(
   command: string,
   context: CommandContext
 ): void {
-  context.setLiens((prev) => [
+  context.setLines((prev) => [
     ...prev,
     {
       type: 'whisper',
@@ -167,7 +167,7 @@ function applyNormalResult(
  * @param context - 명령어 실행 컨텍스트
  */
 function clearTerminal(context: CommandContext): void {
-  context.setLiens(() => []);
+  context.setLines(() => []);
 }
 
 /**
@@ -180,7 +180,7 @@ function addOutputLine(output: string, context: CommandContext): void {
   if (!trimmedOutput) {
     return;
   }
-  context.setLiens((prev) => [
+  context.setLines((prev) => [
     ...prev,
     { type: 'output', content: trimmedOutput },
   ]);
@@ -196,7 +196,7 @@ function addErrorLine(error: string, context: CommandContext): void {
   if (!trimmedError) {
     return;
   }
-  context.setLiens((prev) => [
+  context.setLines((prev) => [
     ...prev,
     { type: 'error', content: trimmedError },
   ]);
@@ -210,7 +210,7 @@ function addErrorLine(error: string, context: CommandContext): void {
 function addExecutionError(e: unknown, context: CommandContext): void {
   const errorMessage =
     e instanceof Error ? e.message : '예상치 못한 순간이 찾아왔습니다.';
-  context.setLiens((prev) => [
+  context.setLines((prev) => [
     ...prev,
     { type: 'error', content: errorMessage },
   ]);

@@ -18,6 +18,8 @@ export default {
     '^@app/(.*)$': '<rootDir>/src/app/$1',
     '^@test/(.*)\\.js$': '<rootDir>/src/__test__/$1.ts',
     '^@test/(.*)$': '<rootDir>/src/__test__/$1',
+    '^@web/(.*)\\.js$': '<rootDir>/src/app/transport/web/$1.ts',
+    '^@web/(.*)$': '<rootDir>/src/app/transport/web/$1',
   },
   testMatch: ['**/?(*.)+(spec|test).ts'],
   collectCoverageFrom: ['src/**/*.ts'],
