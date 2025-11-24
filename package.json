@@ -17,7 +17,9 @@
     "build": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
     "clean": "rm -rf dist",
     "pretest": "npm run build",
-    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest",
+    "test:coverage": "NODE_OPTIONS=--experimental-vm-modules jest --coverage"
+
   },
   "keywords": [],
   "author": "",
@@ -39,6 +41,7 @@
   },
   "dependencies": {
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "react-icons": "^5.5.0"
   }
 }
