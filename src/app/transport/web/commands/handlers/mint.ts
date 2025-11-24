@@ -25,7 +25,15 @@ export const mint: CommandHandler = (args) => {
   const result = runSource(code, { filename: '<terminal>' });
 
   if (!result.ok) {
-    const hint = result.error.hint ? `\n  Hint: ${result.error.hint}` : '';
+    let hint = result.error.hint ? `\n  Hint: ${result.error.hint}` : '';
+    const parserHint =
+      result.error.origin === 'PARSER' &&
+      code.trim().startsWith('sparkle') &&
+      !code.includes('"');
+
+    if (parserHint) {
+      hint += `\n  Hint: 문자열 내부의 따옴표는 백슬래시(\\\\)로 이스케이프하세요.\n  예: mint "sparkle \\"hello, mint!\\"`;
+    }
 
     return {
       error: `🔥 ${result.error.message}${hint}`,
@@ -59,7 +67,7 @@ export const whisper: CommandHandler = (args) => {
 export const example: CommandHandler = () => {
   const example =
     MINT_EXAMPLES[Math.floor(Math.random() * MINT_EXAMPLES.length)];
-  return `✨ MINT 예제:\n\n  ${example}\n\nmint는 이렇게 부드럽게 표현합니다.`;
+  return `✨ MINT 예제:\n\n${example}\n\nmint는 이렇게 부드럽게 표현합니다.`;
 };
 
 /**

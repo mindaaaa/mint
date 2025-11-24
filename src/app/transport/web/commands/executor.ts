@@ -66,6 +66,7 @@ export function executeCommand(
 
 /**
  * 입력 문자열을 파싱하여 명령어와 인수를 분리한다.
+ * 따옴표로 감싼 문자열을 올바르게 처리한다.
  * @param input - 입력 문자열
  * @returns 명령어와 인수를 분리한 객체, 또는 null
  */
@@ -77,8 +78,111 @@ function parseCommand(
     return null;
   }
 
-  const [command, ...args] = trimmedInput.split(/\s+/);
-  return { command, args: args.filter((arg) => arg !== '') };
+  const tokens = tokenizeWithQuotes(trimmedInput);
+  if (tokens.length === 0) {
+    return null;
+  }
+
+  const [command, ...args] = tokens;
+  return { command, args };
+}
+
+/**
+ * 따옴표를 고려하여 입력 문자열을 토큰으로 분리한다.
+ * @param input - 입력 문자열
+ * @returns 토큰 배열
+ */
+function tokenizeWithQuotes(input: string): string[] {
+  const tokens: string[] = [];
+  let current = '';
+  let inQuotes = false;
+  let quoteChar: '"' | "'" | null = null;
+  let i = 0;
+
+  while (i < input.length) {
+    const char = input[i];
+    const nextChar = input[i + 1];
+
+    if (!inQuotes && isQuoteChar(char)) {
+      inQuotes = true;
+      quoteChar = char;
+      i++;
+      continue;
+    }
+
+    if (inQuotes && char === quoteChar) {
+      /* 이전 문자가 백슬래시가 아니면 따옴표 종료 */
+      if (i === 0 || input[i - 1] !== '\\') {
+        inQuotes = false;
+        quoteChar = null;
+        i++;
+        continue;
+      }
+      /* 이스케이프된 따옴표는 current에 추가 (백슬래시는 이미 처리됨) */
+      current += char;
+      i++;
+      continue;
+    }
+
+    if (!inQuotes && isWhitespace(char)) {
+      if (current) {
+        tokens.push(current);
+        current = '';
+      }
+      i++;
+      continue;
+    }
+
+    if (isEscapeSequence(char, nextChar)) {
+      // 따옴표 내부에서만 이스케이프 처리
+      if (inQuotes) {
+        current += nextChar;
+        i += 2;
+        continue;
+      }
+      // 따옴표 외부에서는 백슬래시를 그대로 추가
+      current += char;
+      i++;
+      continue;
+    }
+
+    current += char;
+    i++;
+  }
+
+  if (current) {
+    tokens.push(current);
+  }
+
+  return tokens;
+}
+
+/**
+ * 문자가 따옴표인지 확인한다.
+ * @param char - 확인할 문자
+ * @returns 따옴표 여부
+ */
+function isQuoteChar(char: string): char is '"' | "'" {
+  return char === '"' || char === "'";
+}
+
+/**
+ * 문자가 공백 문자인지 확인한다.
+ * @param char - 확인할 문자
+ * @returns 공백 여부
+ */
+function isWhitespace(char: string): boolean {
+  return /\s/.test(char);
+}
+
+/**
+ * 이스케이프 시퀀스인지 확인한다.
+ * @param char - 현재 문자
+ * @param nextChar - 다음 문자
+ * @returns 이스케이프 시퀀스 여부
+ */
+function isEscapeSequence(char: string, nextChar: string | undefined): boolean {
+  return char === '\\' && nextChar !== undefined;
 }
 
 /**
