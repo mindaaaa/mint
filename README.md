@@ -40,6 +40,9 @@ MINT는 감성적이고 생명력 있는 코딩 경험을 추구하는 커스텀
 웹 브라우저에서 MINT 코드를 작성하고 실행할 수 있습니다.  
 터미널 아이콘을 더블클릭하여 시작하세요!
 
+> [!NOTE]  
+> 웹 플레이그라운드 사용법과 명령어 가이드는 [Web Playground Guide](https://github.com/mindaaaa/mint/wiki/Web-Playground-Guide) 위키에서 확인하세요.
+
 ---
 
 ## 🪴 Quick Start
@@ -51,7 +54,8 @@ MINT는 감성적이고 생명력 있는 코딩 경험을 추구하는 커스텀
 3. `mint "sparkle \"hello, mint!\""` 입력하여 실행
 
 > [!Tip]  
-> 웹 플레이그라운드에서는 설치 없이 바로 MINT를 체험할 수 있습니다.
+> 웹 플레이그라운드에서는 설치 없이 바로 MINT를 체험할 수 있습니다.  
+> 자세한 사용법과 예제는 [Web Playground Guide](https://github.com/mindaaaa/mint/wiki/Web-Playground-Guide) 위키를 참고하세요.
 
 ### CLI로 시작하기
 
@@ -175,7 +179,8 @@ petal greet(name) {
 
 자세한 문서와 예제는 [위키](https://github.com/mindaaaa/mint/wiki)에서 확인하세요.
 
-- [Getting Started](https://github.com/mindaaaa/mint/wiki/Getting-Started) - 시작하기 가이드
+- [Web Playground Guide](https://github.com/mindaaaa/mint/wiki/Web-Playground-Guide) - 웹 플레이그라운드 사용 가이드 및 예제 모음
+- [Getting Started](https://github.com/mindaaaa/mint/wiki/Getting-Started) - CLI 환경 시작하기 가이드
 - [언어 가이드](https://github.com/mindaaaa/mint/wiki/%EC%96%B8%EC%96%B4-%EA%B0%80%EC%9D%B4%EB%93%9C) - 문법 상세 설명
 - [에러 이해하기](https://github.com/mindaaaa/mint/wiki/%EC%97%90%EB%9F%AC-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0) - 에러 처리 가이드
 
