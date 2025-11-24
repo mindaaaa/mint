@@ -7,7 +7,6 @@ import { EvaluatorError } from '@core/evaluator/errors/errors.js';
 import { LexerError } from '@core/lexer/errors/errors.js';
 import type { SourcePosition } from '@core/lexer/tokens.js';
 import { ParserError } from '@core/parser/errors/errors.js';
-import { FileSystemError } from '@app/utils/file.js';
 
 export type MintErrorOrigin =
   | 'LEXER'
@@ -125,8 +124,28 @@ const errorNormalizers: ErrorNormalizer<any>[] = [
   },
 ];
 
-function isFileSystemError(error: unknown): error is FileSystemError {
-  return error instanceof FileSystemError;
+/**
+ * FileSystemError 타입 정의 (import 없이 런타임 체크만 사용).
+ */
+type FileSystemErrorLike = {
+  name: 'FileSystemError';
+  code: 'FILE_NOT_FOUND' | 'NOT_A_FILE' | 'INVALID_EXTENSION' | 'READ_FAILED';
+  message: string;
+};
+
+/**
+ * 웹 환경 호환을 위한 FileSystemError 타입 검사.
+ *
+ * @param error FileSystemError
+ * @returns FileSystemErrorLike
+ */
+function isFileSystemError(error: unknown): error is FileSystemErrorLike {
+  return (
+    error instanceof Error &&
+    error.name === 'FileSystemError' &&
+    'code' in error &&
+    typeof (error as any).code === 'string'
+  );
 }
 
 function isLexerError(error: unknown): error is LexerError {
@@ -147,7 +166,7 @@ function isEvaluatorError(error: unknown): error is EvaluatorError {
  * @param error FileSystemError
  * @returns MintError
  */
-function normalizeFileSystemError(error: FileSystemError): MintError {
+function normalizeFileSystemError(error: FileSystemErrorLike): MintError {
   const hint = (() => {
     switch (error.code) {
       case 'FILE_NOT_FOUND':
