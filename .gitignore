@@ -9,3 +9,5 @@ build
 package-lock.json
 coverage
 storybook-static
+.claude
+.vscode
