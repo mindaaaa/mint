@@ -37,7 +37,7 @@ export function Topbar({
   canRun = true,
 }: TopbarProps) {
   return (
-    <header className="grid grid-cols-[auto_1fr_auto] items-center gap-4 px-5 py-[10px] bg-workbench-panel border-b border-workbench-rule">
+    <header className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-4 px-5 py-[10px] bg-workbench-panel border-b border-workbench-rule">
       <div className="font-serif italic text-[18px] tracking-[-0.2px] text-workbench-ink">
         <span aria-hidden className="text-workbench-green font-bold mr-[6px]">·</span>
         mint <span className="font-medium not-italic">garden</span>
@@ -45,7 +45,7 @@ export function Topbar({
 
       <nav
         aria-label="breadcrumb"
-        className="font-mono text-[11.5px] tracking-[0.2px] text-workbench-ink-mute flex items-center overflow-hidden"
+        className="min-w-0 font-mono text-[11.5px] tracking-[0.2px] text-workbench-ink-mute flex items-center overflow-hidden"
       >
         {crumb.map((part) => (
           <span key={part} className="flex items-center whitespace-nowrap">
