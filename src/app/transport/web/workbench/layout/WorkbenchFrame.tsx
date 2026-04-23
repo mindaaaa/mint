@@ -9,9 +9,9 @@ export interface WorkbenchFrameProps {
 
 export function WorkbenchFrame({ topbar, left, center, right }: WorkbenchFrameProps) {
   return (
-    <div className="min-h-screen flex flex-col bg-workbench-bg text-workbench-ink font-serif">
+    <div className="h-screen flex flex-col bg-workbench-bg text-workbench-ink font-serif overflow-hidden">
       {topbar}
-      <main className="flex-1 grid grid-cols-[260px_minmax(0,1fr)_340px] min-h-0">
+      <main className="flex-1 min-h-0 grid grid-cols-[260px_minmax(0,1fr)_340px]">
         <aside className="bg-workbench-panel border-r border-workbench-rule min-w-0 overflow-hidden">
           {left}
         </aside>

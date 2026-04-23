@@ -41,7 +41,8 @@ export function BloomBody({ result, running, duration }: BloomBodyProps) {
         <div className="font-mono not-italic text-[10.5px] tracking-[2px] uppercase text-workbench-ink-faint mb-2">
           empty field
         </div>
-        상단의 <span className="font-mono not-italic text-workbench-green-deep">▸ bloom</span>을
+        상단의{' '}
+        <span className="font-mono not-italic text-workbench-green-deep">▸ bloom</span>을
         누르면,
         <br />
         이곳에 피어난 결과가 내려앉아요.
@@ -112,7 +113,7 @@ function ErrorBlock({ error }: { error: MintError }) {
             </pre>
             {error.hint && (
               <div className="font-serif italic text-[12.5px] text-workbench-ink-soft leading-[1.6] mt-2">
-                <span className="font-medium not-italic text-workbench-clay">
+                <span className="font-medium not-italic text-workbench-clay font-mono">
                   hint —{' '}
                 </span>
                 {error.hint}

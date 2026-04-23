@@ -2,62 +2,19 @@ import { useEffect } from 'react';
 
 interface KeywordCheat {
   keyword: string;
-  label: string;
   role: string;
   toneClass: string;
-  example: string;
+  label: string;
 }
 
 const CHEATS: readonly KeywordCheat[] = [
-  {
-    keyword: 'plant',
-    label: '이름을 심어요',
-    role: 'variable',
-    toneClass: 'text-workbench-green-deep',
-    example: `plant hope = "sunlight"`,
-  },
-  {
-    keyword: 'sparkle',
-    label: '소리 내어 읽어요',
-    role: 'print',
-    toneClass: 'text-workbench-amber',
-    example: `sparkle "hello, mint!"`,
-  },
-  {
-    keyword: 'breeze',
-    label: '조건이 스쳐 지나가요',
-    role: 'if',
-    toneClass: 'text-workbench-plum',
-    example: `breeze (x == 1) softly { … }`,
-  },
-  {
-    keyword: 'bloom',
-    label: '반복해 피워요',
-    role: 'while',
-    toneClass: 'text-workbench-clay',
-    example: `bloom (count < 3) softly { … }`,
-  },
-  {
-    keyword: 'petal',
-    label: '꽃잎처럼 함수를 접어요',
-    role: 'function',
-    toneClass: 'text-workbench-clay',
-    example: `petal greet(name) { … }`,
-  },
-  {
-    keyword: 'gift',
-    label: '값을 건네요',
-    role: 'return',
-    toneClass: 'text-workbench-green-deep',
-    example: `gift "thank you"`,
-  },
-  {
-    keyword: 'softly',
-    label: '블록을 부드럽게 열어요',
-    role: 'connector',
-    toneClass: 'text-workbench-moss',
-    example: `breeze (…) softly { … }`,
-  },
+  { keyword: 'plant',   role: 'variable',  toneClass: 'text-workbench-green-deep', label: '이름을 심어요' },
+  { keyword: 'sparkle', role: 'print',     toneClass: 'text-workbench-amber',      label: '소리 내어 읽어요' },
+  { keyword: 'breeze',  role: 'if',        toneClass: 'text-workbench-plum',       label: '조건이 스쳐 지나가요' },
+  { keyword: 'bloom',   role: 'while',     toneClass: 'text-workbench-clay',       label: '반복해 피워요' },
+  { keyword: 'petal',   role: 'function',  toneClass: 'text-workbench-clay',       label: '꽃잎처럼 함수를 접어요' },
+  { keyword: 'gift',    role: 'return',    toneClass: 'text-workbench-green-deep', label: '값을 건네요' },
+  { keyword: 'softly',  role: 'connector', toneClass: 'text-workbench-moss',       label: '블록을 부드럽게 열어요' },
 ];
 
 export interface GlossaryModalProps {
@@ -86,15 +43,15 @@ export function GlossaryModal({ open, onClose }: GlossaryModalProps) {
       onClick={onClose}
     >
       <div
-        className="w-[560px] max-w-[90vw] max-h-[80vh] overflow-y-auto bg-workbench-panel border border-workbench-rule rounded-lg shadow-workbench"
+        className="w-[520px] max-w-[90vw] bg-workbench-panel border border-workbench-rule rounded-lg shadow-workbench"
         onClick={(e) => e.stopPropagation()}
       >
-        <header className="flex items-center justify-between px-6 pt-6 pb-3 border-b border-workbench-rule-soft">
+        <header className="flex items-center justify-between px-6 pt-5 pb-3 border-b border-workbench-rule-soft">
           <div>
             <div className="font-mono text-[10.5px] tracking-[2px] uppercase text-workbench-green-deep">
               keyword glossary
             </div>
-            <div className="font-serif italic text-[22px] text-workbench-ink mt-[4px]">
+            <div className="font-serif italic text-[18px] text-workbench-ink mt-[2px]">
               일곱 개의 작은 키워드
             </div>
           </div>
@@ -102,40 +59,33 @@ export function GlossaryModal({ open, onClose }: GlossaryModalProps) {
             type="button"
             onClick={onClose}
             aria-label="close glossary"
-            className="w-[30px] h-[30px] rounded-md text-workbench-ink-mute hover:bg-workbench-soft font-serif text-[16px]"
+            className="w-[28px] h-[28px] rounded-md text-workbench-ink-mute hover:bg-workbench-soft font-serif text-[16px]"
           >
             ×
           </button>
         </header>
 
-        <div className="px-6 py-5 flex flex-col gap-3">
+        <ul className="px-6 py-2 m-0 list-none">
           {CHEATS.map((c) => (
-            <article
+            <li
               key={c.keyword}
-              className="grid grid-cols-[110px_1fr] gap-4 items-baseline py-[10px] border-b border-workbench-rule-soft last:border-b-0"
+              className="grid grid-cols-[86px_72px_1fr] gap-3 items-baseline py-[7px] border-b border-workbench-rule-soft last:border-b-0"
             >
-              <div>
-                <div className={`font-mono text-[14px] font-medium ${c.toneClass}`}>
-                  {c.keyword}
-                </div>
-                <div className="font-mono text-[10px] text-workbench-ink-faint mt-[2px]">
-                  {c.role}
-                </div>
-              </div>
-              <div>
-                <div className="font-serif italic text-[13.5px] text-workbench-ink leading-[1.55]">
-                  {c.label}
-                </div>
-                <pre className="font-mono text-[11.5px] text-workbench-ink-soft mt-[6px] bg-workbench-soft border-l-2 border-workbench-rule px-[10px] py-[6px] rounded-r m-0 whitespace-pre-wrap">
-                  {c.example}
-                </pre>
-              </div>
-            </article>
+              <span className={`font-mono text-[13px] font-medium ${c.toneClass}`}>
+                {c.keyword}
+              </span>
+              <span className="font-mono text-[10px] text-workbench-ink-faint tracking-[0.3px]">
+                {c.role}
+              </span>
+              <span className="font-serif italic text-[12.5px] text-workbench-ink-soft leading-[1.4]">
+                {c.label}
+              </span>
+            </li>
           ))}
-        </div>
+        </ul>
 
-        <footer className="px-6 py-3 border-t border-workbench-rule-soft bg-workbench-soft font-mono text-[10.5px] text-workbench-ink-mute tracking-[0.4px]">
-          esc를 누르거나 바깥을 눌러 닫기 · 자세한 내용은 about → language guide
+        <footer className="px-6 py-[10px] border-t border-workbench-rule-soft bg-workbench-soft font-mono text-[10px] text-workbench-ink-mute tracking-[0.4px]">
+          esc · click outside to close
         </footer>
       </div>
     </div>

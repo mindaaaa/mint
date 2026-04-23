@@ -131,7 +131,7 @@ function DrawerEmpty({ query }: { query: string }) {
   return (
     <div className="px-[18px] py-10 text-center">
       <div className="font-serif italic text-[14px] text-workbench-ink-soft mb-2">
-        이 이름의 씨앗은 아직 심긴 적 없어요.
+        이 이름의 씨앗은 아직 심긴 적이 없어요.
       </div>
       <div className="font-mono text-[11px] text-workbench-ink-faint">
         “{query}”
@@ -144,7 +144,7 @@ function DrawerFoot({ onNewSeed }: { onNewSeed?: () => void }) {
   return (
     <div className="mt-2 px-[18px] py-[14px] border-t border-workbench-rule-soft bg-workbench-soft">
       <div className="font-serif italic text-[11.5px] text-workbench-ink-soft leading-[1.7]">
-        <div className="text-workbench-ink font-medium not-italic mb-[2px]">
+        <div className="text-workbench-ink font-medium not-italic mb-[2px] font-mono text-[10.5px] tracking-[1.4px] uppercase">
           new seed
         </div>
         빈 정원에서 시작하려면{' '}
