@@ -11,14 +11,8 @@
 
 </div>
 
-<!--
-  🎬 DEMO VIDEO · HERO LOOP
-  길이   : 10~15초 (muted autoplay / GIF)
-  내용   : drawer 클릭 → 에디터 로드 → ▸ bloom → 🌼×3 + thank you → 루프
-  파일   : docs/demo/hero.gif  (or hero.mp4)
-  교체법 : 아래 <img> 태그를 새 데모 파일 경로로 바꾸기 (Pinterest gif 대체)
--->
-<img src="https://i.pinimg.com/originals/fc/9c/e5/fc9ce59ceff32d597144e47606325126.gif" alt="배너" width=1280>
+<img width="1280" height="720" alt="hero" src="https://github.com/user-attachments/assets/d4fba3ae-0d7f-4109-8f8f-1e224bbd8134" />
+
 
 ## 🌼 What is MINT?
 
@@ -44,17 +38,9 @@ MINT는 감성적이고 생명력 있는 코딩 경험을 추구하는 커스텀
 
 👉 **[https://mint-woad.vercel.app/](https://mint-woad.vercel.app/)**
 
-<!--
-  🎬 DEMO VIDEO · 메인 전체 플로우 (포트폴리오 핵심)
-  길이   : 1:45 ~ 2:00
-  내용   : 첫 인상 → 예제 선택 → bloom → 라이브 편집 →
-           낙엽(에러) → walk 튜토리얼 → glossary → 정리
-  파일   : docs/demo/walkthrough.mp4  (or 썸네일 poster + 유튜브 링크)
-  삽입예 :
-    <video src="docs/demo/walkthrough.mp4" controls width="1000" poster="docs/demo/poster.png"></video>
-    또는
-    [![walkthrough](docs/demo/poster.png)](https://youtu.be/XXXX)
--->
+
+<img width="1280" height="720" alt="walkthrough" src="https://github.com/user-attachments/assets/43826218-c902-406f-9abc-f38829c8e40f" />
+
 
 웹 브라우저에서 MINT 코드를 작성하고 실행할 수 있습니다.
 예제 드로어에서 씨앗 하나를 골라 `▸ bloom` 버튼으로 피워보세요.
@@ -112,17 +98,8 @@ MINT는 감성적이고 생명력 있는 코딩 경험을 추구하는 커스텀
 
 #### 오류 예시
 
-<!--
-  🎬 DEMO VIDEO · R4 낙엽 3연타 (에러 → 고침 → 개화)
-  길이 : 25~30초 GIF
-  파일 : docs/demo/fallen.gif
-  내용 : fallen-leaves 3종을 연속으로 "발생 → 수정 → 재개화" 시연
-    1) parser stumble   bloom (3 < …) 조건 완성 + softly + 블록 닫기
-    2) undefined        맨 위에 plant 로 이름 심기
-    3) type mismatch    3 을 "3" 으로 따옴표 추가 (한 글자 수정)
-  메시지 : "에러는 막다른 길이 아니라, 한 번 고쳐 다시 피우는 길"
-  배치 : 아래 CLI 오류 출력과 나란히 — "CLI vs 웹" 에러 표현 비교
--->
+<img width="1280" height="720" alt="fallen" src="https://github.com/user-attachments/assets/fde3326c-3fa3-41fd-9121-4c47342c76f2" />
+
 
 ```bash
 mint run examples/errors.mint
@@ -146,12 +123,8 @@ mint run examples/errors.mint
 
 ## 문법 예시
 
-<!--
-  🎬 DEMO VIDEO · C-1 문법 타이핑 클로즈업 (8초 GIF)
-  내용 : 빈 에디터에 한 줄씩 타이핑, 키워드가 green/amber/plum/clay로 피어오름
-  파일 : docs/demo/syntax.gif
-  배치 : 아래 mint 코드블록 바로 위에 삽입하면 live preview 느낌
--->
+<img width="1280" height="720" alt="syntax" src="https://github.com/user-attachments/assets/c6935dfd-8e62-4d00-963f-0d0fb6031ded" />
+
 
 ```mint
 plant feeling = "gentle"
@@ -202,14 +175,7 @@ petal greet(name) {
 | `gift`    | 반환      | 값을 건넵니다. 마치 선물을 전하듯       |
 | `softly`  | 연결어    | 흐름을 잇는 말입니다                    |
 
-<!--
-  🎬 DEMO VIDEO · R5 walk 챕터 전환
-  길이 : 12초 GIF
-  파일 : docs/demo/walk.gif
-  내용 : 상단 `walk` 토글 → 우측 패널이 narration으로 전환 →
-         챕터 1 "첫 씨앗" → nav `next →` → 챕터 2 "바람이 스치면"
-  배치 : 키워드 표 바로 아래 — "이 키워드들을 어떻게 배우는지" 자연 연결
--->
+<img width="1280" height="720" alt="walk" src="https://github.com/user-attachments/assets/18b6dea0-99d2-4799-bd87-0a5c4a1b5ab5" />
 
 ---
 
