@@ -1,0 +1,27 @@
+import type { ReactNode } from 'react';
+
+export interface WorkbenchFrameProps {
+  topbar: ReactNode;
+  left: ReactNode;
+  center: ReactNode;
+  right: ReactNode;
+}
+
+export function WorkbenchFrame({ topbar, left, center, right }: WorkbenchFrameProps) {
+  return (
+    <div className="h-screen flex flex-col bg-workbench-bg text-workbench-ink font-serif overflow-hidden">
+      {topbar}
+      <main className="flex-1 min-h-0 grid grid-cols-[260px_minmax(0,1fr)_340px]">
+        <aside className="bg-workbench-panel border-r border-workbench-rule min-w-0 overflow-hidden">
+          {left}
+        </aside>
+        <section className="bg-workbench-panel border-r border-workbench-rule flex flex-col min-h-0 min-w-0 overflow-hidden">
+          {center}
+        </section>
+        <aside className="bg-workbench-panel min-w-0 overflow-hidden">
+          {right}
+        </aside>
+      </main>
+    </div>
+  );
+}

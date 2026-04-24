@@ -8,3 +8,6 @@ build
 .env.production.local
 package-lock.json
 coverage
+storybook-static
+.claude
+.vscode
