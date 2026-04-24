@@ -412,6 +412,99 @@ describe('ExpressionEvaluator', () => {
         }
       }
     });
+
+    test('숫자와 문자열을 더하면 EvaluatorError를 발생시킨다', () => {
+      // Given
+      const expression: ExpressionNode = {
+        type: 'BinaryExpression',
+        operator: '+',
+        left: {
+          type: 'LiteralExpression',
+          value: 3,
+        },
+        right: {
+          type: 'LiteralExpression',
+          value: '🌼',
+        },
+      };
+
+      // When
+      const when = () =>
+        evaluator.evaluate(expression, environment, { inFunction: false });
+
+      // Then
+      expect(when).toThrow(EvaluatorError);
+      try {
+        evaluator.evaluate(expression, environment, { inFunction: false });
+      } catch (error) {
+        expect(error).toBeInstanceOf(EvaluatorError);
+        if (error instanceof EvaluatorError) {
+          expect(error.code).toBe('EVALUATOR_TYPE_ERROR');
+        }
+      }
+    });
+
+    test('문자열과 숫자를 더하면 EvaluatorError를 발생시킨다', () => {
+      // Given
+      const expression: ExpressionNode = {
+        type: 'BinaryExpression',
+        operator: '+',
+        left: {
+          type: 'LiteralExpression',
+          value: '🌼',
+        },
+        right: {
+          type: 'LiteralExpression',
+          value: 3,
+        },
+      };
+
+      // When
+      const when = () =>
+        evaluator.evaluate(expression, environment, { inFunction: false });
+
+      // Then
+      expect(when).toThrow(EvaluatorError);
+      try {
+        evaluator.evaluate(expression, environment, { inFunction: false });
+      } catch (error) {
+        expect(error).toBeInstanceOf(EvaluatorError);
+        if (error instanceof EvaluatorError) {
+          expect(error.code).toBe('EVALUATOR_TYPE_ERROR');
+        }
+      }
+    });
+
+    test('불리언과 문자열을 더하면 EvaluatorError를 발생시킨다', () => {
+      // Given
+      const expression: ExpressionNode = {
+        type: 'BinaryExpression',
+        operator: '+',
+        left: {
+          type: 'LiteralExpression',
+          value: true,
+        },
+        right: {
+          type: 'LiteralExpression',
+          value: 'hello',
+        },
+      };
+
+      // When
+      const when = () =>
+        evaluator.evaluate(expression, environment, { inFunction: false });
+
+      // Then
+      expect(when).toThrow(EvaluatorError);
+      try {
+        evaluator.evaluate(expression, environment, { inFunction: false });
+      } catch (error) {
+        expect(error).toBeInstanceOf(EvaluatorError);
+        if (error instanceof EvaluatorError) {
+          expect(error.code).toBe('EVALUATOR_TYPE_ERROR');
+        }
+      }
+    });
   });
 
   describe('AssignmentExpression', () => {
