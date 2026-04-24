@@ -30,7 +30,7 @@ export function MobileGuard({ children }: { children: ReactNode }) {
         </div>
         <div className='text-garden-sub text-sm leading-relaxed'>
           MINT 정원은{' '}
-          <span className='font-mono text-garden-primary'>1280px</span> 이상의
+          <span className='font-mono text-garden-primary'>850px</span> 이상의
           화면에서 피어나도록 다듬어졌어요.
           <br />
           데스크톱 브라우저에서 다시 만나요.
